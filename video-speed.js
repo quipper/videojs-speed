@@ -51,8 +51,8 @@ videojs.plugin('speed', function(options) {
     player.ready(function() {
         var button = new videojs.SpeedButton(player, {
             el: videojs.Component.prototype.createEl(null, {
-                className: 'vjs-res-button vjs-menu-button vjs-control',
-                innerHTML: '<div class="vjs-control-content" style="font-size: 11px; line-height: 28px;"><span class="vjs-current-speed"></span></div>',
+                className: 'vjs-res-button vjs-menu-button vjs-control vjs-speed-button',
+                innerHTML: '<div class="vjs-control-content"><span class="vjs-current-speed"></span></div>',
                 role: 'button'
             })
         });
