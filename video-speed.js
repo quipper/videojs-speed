@@ -49,22 +49,16 @@ videojs.plugin('speed', function(options) {
   };
 
   player.ready(function() {
-    var button = new videojs.SpeedButton(player, {
-      el: videojs.Component.prototype.createEl(null, {
-        className: 'vjs-res-button vjs-menu-button vjs-control vjs-speed-button',
-        innerHTML: '<div class="vjs-control-content"><span class="vjs-current-speed"></span></div>',
-        role: 'button'
-      })
-    });
-    player.controlBar.speedButton = player.controlBar.addChild(button);
-    changeSpeed(selectedItem);
-
-    try {
-      if (player.c.P.id.indexOf('html5') == -1) { // FIXME player.c.P
-        button.hide();
-      }
-    } catch (err) {
-      console.log("can't detect tech.");
+    if (!player.controlBar.speedButton) {
+      var button = new videojs.SpeedButton(player, {
+        el: videojs.Component.prototype.createEl(null, {
+          className: 'vjs-res-button vjs-menu-button vjs-control vjs-speed-button',
+          innerHTML: '<div class="vjs-control-content"><span class="vjs-current-speed"></span></div>',
+          role: 'button'
+        })
+      });
+      player.controlBar.speedButton = player.controlBar.addChild(button);
+      changeSpeed(selectedItem);
     }
   });
 });
